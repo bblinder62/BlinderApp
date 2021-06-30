@@ -1,4 +1,29 @@
-<h1>Hello World</h1>
-This is the testing file.<br>
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+
+
+<div class="jumbotron" class="bg-info">
+    <h2>Test Puzzle Title</h2>
+</div>
+<p>
+This is where the description or other little tips for puzzles would go.<br>
+Sadly, for this testing page, I just want the basic code to work before I focus on any acutal content.
+</p>
 user is <%= user.googlename %> and their email is
 <%= user.googleemail %>
+<hr>
+<div class="jumbotron bg-light">
+    <h5>Comments: </h4>
+</div>
+<div class="row">
+    <form method="post" action="newComment">
+        New Comment:
+        <br>
+        <textarea name="comment" wrap="soft" rows="10" cols="40"></textarea>
+        <br>
+        <input type="submit" value="Post">
+    </form>
+
+</div>
+
+<%- include("bootfooter") -%>
