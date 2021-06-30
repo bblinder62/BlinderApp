@@ -37,7 +37,7 @@ module.exports = function(passport) {
     // =========================================================================
     // load the auth variables
 
-    var configAuth = require('./auth');
+    //var configAuth = require('./auth');
     /*
     const clientID = configAuth.googleAuth.clientID
     const clientSecret = configAuth.googleAuth.clientSecret
