@@ -6,9 +6,11 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var commentSchema = Schema( {
   words: String,
-  createdAt: Date,
-  userId: ObjectId
+  userId: String,
+  pageId:String,
+  trueId:ObjectId,
+  date:String
 
 } );
 
-module.exports = mongoose.model( 'comment', commentSchema );
+module.exports = mongoose.model( 'commentModel', commentSchema );

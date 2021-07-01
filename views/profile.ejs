@@ -1,39 +1,23 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
 <div class="jumbotron">
   <h1>Your Profile</h1>
-  <p> this comes from the google authentication
-      and from the info you provide when you
-      edit this page!
-  </p>
 </div>
-<hr>
-<a href="editProfile">Edit</a>
 <hr>
 <div class="row">
-  <div class="col-sm-4">
-    <img src="<%= user.imageURL %>" alt="image of user">
+  <div class="bg-danger">
+    <img src="<%= user.imageURL %>" width="200">
+    <br>
+    <%=user.username%>
   </div>
-  <div class="col-sm-4">
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <td>googlename</td>
-            <td><%= user.googlename %> </td>
-          </tr>
-          <tr>
-            <td>googleemail</td>
-            <td><%= user.googleemail %> </td>
-          </tr>
-          <tr>
-            <td>username</td>
-            <td><%= user.username %> </td>
-          </tr>
-          <tr>
-            <td>age</td>
-            <td><%= user.age %> </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="bg-info">
+  <%= user.googlename %><br>
+  <%= user.googleemail %><br>
+  <%= user.age %><br>
+  <%=user.about%><br>
   </div>
-  <div class="col-sm-4">
-  </div>
-</div>
+  <p>Delete all Comments you have made? <a href="/comments/clear">Yes</a></p>
+
+  <a href="/editProfile">Edit</a>
+<%- include("bootfooter")-%>
+

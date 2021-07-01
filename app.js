@@ -9,9 +9,11 @@ const auth = require('./config/auth.js');
 
 
 
+
 const mongoose = require( 'mongoose' );
-//mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
-mongoose.connect( 'mongodb://localhost/authDemo');
+mongoose.connect( `mongodb+srv://benjaminblinder:benjaminblinder@cluster0.vjqbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+`);
+//mongoose.connect( 'mongodb://localhost/authDemo');
 //const mongoDB_URI = process.env.MONGODB_URI
 //mongoose.connect(mongoDB_URI)
 
@@ -66,15 +68,147 @@ const myLogger = (req,res,next) => {
   next()
 }
 
+
+const Comment = require('./models/Comment')
+
 app.get('/testing',
-  myLogger,
   isLoggedIn,
-  (req,res) => {  res.render('testing')
+  async(req,res,next) => {  
+    res.locals.comments=await Comment.find({pageId:"testing"})
+   res.render('testing')
 })
 
-app.get('/testing2',(req,res) => {
-  res.render('testing2')
+app.post("/newComment",
+isLoggedIn,
+async(req,res,next)=>{
+  res.locals.comments=await Comment.find({pageId:"testing"})
+  let d = new Date();
+  d = d.getDate();
+  let m = new Date();
+  m = m.getMonth();
+  let y = new Date();
+  y = y.getFullYear();
+  let date=m+"/"+d+"/"+y;
+  const commentdata = {
+    words: req.body.comment,
+    userId: req.user.username,
+    pageId:req.body.pageId,
+    trueId:req.user._id,
+    date:date
+  }
+  console.dir(commentdata)
+  const newcomment = new Comment(commentdata)
+  await newcomment.save()
+  res.redirect('/testing')
 })
+
+app.get('/sudoku',
+  isLoggedIn,
+  async(req,res,next) => {  
+    res.locals.comments=await Comment.find({pageId:"Sudoku"})
+   res.render('sudoku')
+})
+
+app.post("/newCommentSudoku",
+isLoggedIn,
+async(req,res,next)=>{
+  res.locals.comments=await Comment.find({pageId:"Sudoku"})
+  let d = new Date();
+  d = d.getDate();
+  let m = new Date();
+  m = m.getMonth();
+  let y = new Date();
+  y = y.getFullYear();
+  let date=m+"/"+d+"/"+y;
+  const commentdata = {
+    words: req.body.comment,
+    userId: req.user.username,
+    pageId:req.body.pageId,
+    trueId:req.user._id,
+    date:date
+  }
+  console.dir(commentdata)
+  const newcomment = new Comment(commentdata)
+  await newcomment.save()
+  res.redirect('/sudoku')
+})
+
+app.get('/Nonogram',
+  isLoggedIn,
+  async(req,res,next) => {  
+    res.locals.comments=await Comment.find({pageId:"Nonogram"})
+   res.render('nonogram')
+})
+
+app.post("/newCommentNonogram",
+isLoggedIn,
+async(req,res,next)=>{
+  res.locals.comments=await Comment.find({pageId:"Nonogram"})
+  let d = new Date();
+  d = d.getDate();
+  let m = new Date();
+  m = m.getMonth();
+  let y = new Date();
+  y = y.getFullYear();
+  let date=m+"/"+d+"/"+y;
+  const commentdata = {
+    words: req.body.comment,
+    userId: req.user.username,
+    pageId:req.body.pageId,
+    trueId:req.user._id,
+    date:date
+  }
+  console.dir(commentdata)
+  const newcomment = new Comment(commentdata)
+  await newcomment.save()
+  res.redirect('/nonogram')
+})
+
+app.get('/Jigsaw',
+  isLoggedIn,
+  async(req,res,next) => {  
+    res.locals.comments=await Comment.find({pageId:"Jigsaw"})
+   res.render('Jigsaw')
+})
+
+app.post("/newCommentJigsaw",
+isLoggedIn,
+async(req,res,next)=>{
+  res.locals.comments=await Comment.find({pageId:"Jigsaw"})
+  let d = new Date();
+  d = d.getDate();
+  let m = new Date();
+  m = m.getMonth();
+  let y = new Date();
+  y = y.getFullYear();
+  let date=m+"/"+d+"/"+y;
+  const commentdata = {
+    words: req.body.comment,
+    userId: req.user.username,
+    pageId:req.body.pageId,
+    trueId:req.user._id,
+    date:date
+  }
+  console.dir(commentdata)
+  const newcomment = new Comment(commentdata)
+  await newcomment.save()
+  res.redirect('/Jigsaw')
+})
+
+app.get('/comments/clearAll',isLoggedIn,
+  async (req,res,next) => {
+    await Comment.deleteMany({})
+    res.redirect('/')
+  }
+)
+
+app.get('/comments/clear',isLoggedIn,
+  async (req,res,next) => {
+    await Comment.deleteMany({trueId:req.user._id})
+    res.redirect('/')
+  }
+)
+
 
 app.get('/profiles',
     isLoggedIn,
@@ -123,6 +257,7 @@ app.post('/editProfile',
         req.user.username = username
         req.user.age = age
         req.user.imageURL = req.body.imageURL
+        req.user.about=req.body.about
         await req.user.save()
         res.redirect('/profile')
       } catch (error) {
@@ -152,7 +287,8 @@ app.get("/apikey", async (req,res,next) => {
   res.render('apikey')
 })
 
-const APIKey = require('./models/APIKey')
+const APIKey = require('./models/APIKey');
+const { getDefaultSettings } = require('http2');
 
 app.post("/apikey",
   isLoggedIn,

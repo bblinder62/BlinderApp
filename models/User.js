@@ -13,6 +13,7 @@ var userSchema = Schema( {
   username:String,
   age:Number,
   imageURL: String,
+  about:String,
 } );
 
 module.exports = mongoose.model( 'User', userSchema );

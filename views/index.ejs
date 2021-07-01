@@ -1,14 +1,18 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
 
-  <div class="jumbotron">
+  <div class="jumbotron bg-light">
 
     <h1>The Great Puzzle Utili-Tool</h1>
     <p>Made by Ben Blinder</p>
   </div>
 
+  <div class="bg-light">
+<h3>Use the menubar to naviagte</h3>
+  </div>
+
     <ul>
-      <li><a href="/testing">Go to test Puzzle Page </a></li>
+      <li><a href="/testing">Go to Example Puzzle Page </a></li>
       <% if (loggedIn) {%>
       <li><a href="/profile">See your profile </a></li>
       <li><a href="/profiles">See everyone's profile</a></li>

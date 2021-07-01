@@ -3,14 +3,14 @@
 
 
 <div class="jumbotron" class="bg-info">
-    <h2>Test Puzzle Title</h2>
+    <h2>Sudoku Puzzles</h2>
 </div>
+<img src="https://scx1.b-cdn.net/csz/news/800a/2006/Psudo-1.png">
 <p>
-This is where the description or other little tips for puzzles would go.<br>
-Sadly, for this testing page, I just want the basic code to work before I focus on any acutal content.
+Sudoku Puzzles are 9 by 9 grids of numbers. <br>
+You can only put numbers one through nine of the table, and each column, row, and smaller 3x3 box cannot repeat any numbers.
+<br>The easiest way to solve a Sudoku Table is to mark down which numbers cannot be in each box, and write down any numbers are the only possibility for the box.
 </p>
-user is <%= user.googlename %> and their email is
-<%= user.googleemail %>
 <hr>
 <div class="jumbotron bg-light">
     <h5>Comments: </h4>
@@ -23,18 +23,14 @@ user is <%= user.googlename %> and their email is
         </div>
         <hr>
     <%})%>
-    <form method="post" action="newComment">
+    <form method="post" action="newCommentSudoku">
         New Comment:
-        <input type="text" value="testing" name="pageId" readonly>
+        <input type="text" value="Sudoku" name="pageId" readonly>
         <br>
         <textarea name="comment" wrap="soft" rows="10" cols="40"></textarea>
         <br>
         <input type="submit" value="Post">
     </form>
-    <%if(user.googleemail=="benjaminblinder@brandeis.edu"){%>
-    <a href="/comments/clearAll">ClearAll</a>
-    <a href="/comments/clear">Clear Personal</a>
-    <%}%>
 
 </div>
 

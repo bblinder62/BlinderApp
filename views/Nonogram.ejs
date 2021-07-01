@@ -1,0 +1,38 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+
+
+<div class="jumbotron" class="bg-info">
+    <h2>Nonogram Puzzles</h2>
+</div>
+<img src="https://www.puzzle-nonograms.com/art/og/puzzle-nonograms.png">
+<p>
+Nonogram Puzzles are large grids that have numbers exclusively on the outside of the table. <br>
+The goal of this puzzle is to color in the correct boxes on the table. The numbers on the outside of the table tell you how many boxes need to be filled in that row or column.
+<br>
+The easiest way to solve this kind of puzzle is to start with the highest number, mark out the correct number of boxes, and continue on to the next highest.
+</p>
+<hr>
+<div class="jumbotron bg-light">
+    <h5>Comments: </h4>
+</div>
+<div class="row">
+    <%locals.comments.forEach(item => {%>
+        Posted by: <%=item.userId%> on <%=item.date%>
+        <div class="bg-light">
+        <%=item.words%>
+        </div>
+        <hr>
+    <%})%>
+    <form method="post" action="newCommentNonogram">
+        New Comment:
+        <input type="text" value="Nonogram" name="pageId" readonly>
+        <br>
+        <textarea name="comment" wrap="soft" rows="10" cols="40"></textarea>
+        <br>
+        <input type="submit" value="Post">
+    </form>
+
+</div>
+
+<%- include("bootfooter") -%>

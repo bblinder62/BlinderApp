@@ -3,14 +3,13 @@
 
 
 <div class="jumbotron" class="bg-info">
-    <h2>Test Puzzle Title</h2>
+    <h2>Jigsaw Puzzles</h2>
 </div>
+<img src="https://templatelab.com/wp-content/uploads/2017/04/puzzle-piece-template-02.jpg" width="400">
 <p>
-This is where the description or other little tips for puzzles would go.<br>
-Sadly, for this testing page, I just want the basic code to work before I focus on any acutal content.
+Jigsaw Puzzles are the most straight-forward puzzles and always consist of many different small pieces that fit together to form a larger image.<br>
+There are many ways to solve this kind of puzzle, the most widely reccommended is to start with any edge pieces that might be in the puzzle.
 </p>
-user is <%= user.googlename %> and their email is
-<%= user.googleemail %>
 <hr>
 <div class="jumbotron bg-light">
     <h5>Comments: </h4>
@@ -23,18 +22,14 @@ user is <%= user.googlename %> and their email is
         </div>
         <hr>
     <%})%>
-    <form method="post" action="newComment">
+    <form method="post" action="newCommentJigsaw">
         New Comment:
-        <input type="text" value="testing" name="pageId" readonly>
+        <input type="text" value="Jigsaw" name="pageId" readonly>
         <br>
         <textarea name="comment" wrap="soft" rows="10" cols="40"></textarea>
         <br>
         <input type="submit" value="Post">
     </form>
-    <%if(user.googleemail=="benjaminblinder@brandeis.edu"){%>
-    <a href="/comments/clearAll">ClearAll</a>
-    <a href="/comments/clear">Clear Personal</a>
-    <%}%>
 
 </div>
 

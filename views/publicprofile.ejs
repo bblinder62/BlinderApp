@@ -1,37 +1,26 @@
-<div class="jumbotron">
-  <h1>Authdemo Profile</h1>
-  <p> this comes from the google authentication
-      and from the info you provide when you
-      edit this page!
-  </p>
-</div>
-
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
 <div class="row">
-  <div class="col-sm-4">
-    <img src="<%= profile.imageURL %> " alt="users photo">
+  <div class="bg-danger">
+    <img src="<%= profile.imageURL %>" width="200">
+    <br>
+    <h1><%=profile.username%>'s Profile Page</h1>
   </div>
-  <div class="col-sm-4">
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <td>googlename</td>
-            <td><%= profile.googlename %> </td>
-          </tr>
-          <tr>
-            <td>googleemail</td>
-            <td> (hidden) </td>
-          </tr>
-          <tr>
-            <td>username</td>
-            <td><%= profile.username %> </td>
-          </tr>
-          <tr>
-            <td>age</td>
-            <td><%= profile.age %> </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="bg-info">
+  Real Name: 
+  <% if(user.googleemail==profile.googleemail){%>
+    <%=user.googlename%>
+    <br>
+    Email Address: 
+    <%=profile.googleemail%>
+  <%} else{%>
+    (Identifying information is hidden)
+  <%}%>
+  <br>
+  Age: <%= user.age %><br>
+  About <%=profile.username%>:<br>
+  <div class="bg-warning">
+    <%=user.about%>
   </div>
-  <div class="col-sm-4">
   </div>
-</div>
+<%- include('bootfooter') -%>
