@@ -34,7 +34,7 @@ const approvedLogins = ["tjhickey@brandeis.edu", "tjhickey724@gmail.com","csjbs2
 
 // here is where we check on their logged in status
 router.use((req,res,next) => {
-  res.locals.title="Authentication Demo"
+  res.locals.title="Blinder App"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
       res.locals.user = req.user

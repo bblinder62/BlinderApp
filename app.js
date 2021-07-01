@@ -5,16 +5,16 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const layouts = require("express-ejs-layouts");
-//const auth = require('./config/auth.js');
+const auth = require('./config/auth.js');
 
 
 
 
 const mongoose = require( 'mongoose' );
-//mongoose.connect( `mongodb+srv://benjaminblinder:benjaminblinder@cluster0.vjqbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
+mongoose.connect( `mongodb+srv://benjaminblinder:benjaminblinder@cluster0.vjqbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
 //mongoose.connect( 'mongodb://localhost/authDemo');
-const mongoDB_URI = process.env.MONGODB_URI
-mongoose.connect(mongoDB_URI)
+//const mongoDB_URI = process.env.MONGODB_URI
+//mongoose.connect(mongoDB_URI)
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
