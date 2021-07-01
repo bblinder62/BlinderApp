@@ -30,7 +30,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 
 
-const approvedLogins = ["tjhickey@brandeis.edu", "tjhickey724@gmail.com","csjbs2018@gmail.com","benjaminblinder@brandeis.edu"];
+const approvedLogins = ["tjhickey@brandeis.edu", "tjhickey724@gmail.com","csjbs2018@gmail.com","benjaminblinder@brandeis.edu","btblinder1@gmail.com"];
 
 // here is where we check on their logged in status
 router.use((req,res,next) => {
