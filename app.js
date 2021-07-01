@@ -101,11 +101,11 @@ async(req,res,next)=>{
   res.redirect('/testing')
 })
 
-app.get('/sudoku',
+app.get('/Sudoku',
   isLoggedIn,
   async(req,res,next) => {  
     res.locals.comments=await Comment.find({pageId:"Sudoku"})
-   res.render('sudoku')
+   res.render('Sudoku')
 })
 
 app.post("/newCommentSudoku",
@@ -129,14 +129,14 @@ async(req,res,next)=>{
   console.dir(commentdata)
   const newcomment = new Comment(commentdata)
   await newcomment.save()
-  res.redirect('/sudoku')
+  res.redirect('/Sudoku')
 })
 
 app.get('/Nonogram',
   isLoggedIn,
   async(req,res,next) => {  
     res.locals.comments=await Comment.find({pageId:"Nonogram"})
-   res.render('nonogram')
+   res.render('Nonogram')
 })
 
 app.post("/newCommentNonogram",
