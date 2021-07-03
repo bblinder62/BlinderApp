@@ -15,7 +15,7 @@
   <% profiles.forEach(profile => { %>
     <tr>
           <td>
-            <%if(profile.username!=""){%>
+            <%if(profile.username!=null){%>
               <a href="/publicprofile/<%= profile._id %>">
               <%= profile.username %>
               </a>
