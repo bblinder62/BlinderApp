@@ -102,7 +102,6 @@ async(req,res,next)=>{
 })
 
 app.get('/Sudoku',
-  isLoggedIn,
   async(req,res,next) => {  
     res.locals.comments=await Comment.find({pageId:"Sudoku"})
    res.render('Sudoku')
@@ -133,7 +132,6 @@ async(req,res,next)=>{
 })
 
 app.get('/Nonogram',
-  isLoggedIn,
   async(req,res,next) => {  
     res.locals.comments=await Comment.find({pageId:"Nonogram"})
    res.render('Nonogram')
@@ -164,7 +162,6 @@ async(req,res,next)=>{
 })
 
 app.get('/Jigsaw',
-  isLoggedIn,
   async(req,res,next) => {  
     res.locals.comments=await Comment.find({pageId:"Jigsaw"})
    res.render('Jigsaw')

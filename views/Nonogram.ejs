@@ -24,6 +24,7 @@ The easiest way to solve this kind of puzzle is to start with the highest number
         </div>
         <hr>
     <%})%>
+    <%if(loggedIn){%>
     <form method="post" action="newCommentNonogram">
         New Comment:
         <input type="text" value="Nonogram" name="pageId" readonly>
@@ -32,6 +33,11 @@ The easiest way to solve this kind of puzzle is to start with the highest number
         <br>
         <input type="submit" value="Post">
     </form>
+    <%}else{%>
+        <div class="jumbotron">
+            <h4>Please Login to leave comments</h4>
+        </div>
+    <%}%>
 
 </div>
 

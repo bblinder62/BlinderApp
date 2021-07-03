@@ -22,6 +22,7 @@ There are many ways to solve this kind of puzzle, the most widely reccommended i
         </div>
         <hr>
     <%})%>
+    <%if(loggedIn){%>
     <form method="post" action="newCommentJigsaw">
         New Comment:
         <input type="text" value="Jigsaw" name="pageId" readonly>
@@ -30,6 +31,11 @@ There are many ways to solve this kind of puzzle, the most widely reccommended i
         <br>
         <input type="submit" value="Post">
     </form>
+    <%}else{%>
+        <div class="jumbotron">
+            <h4>Please Login to leave comments</h4>
+        </div>
+    <%}%>
 
 </div>
 
