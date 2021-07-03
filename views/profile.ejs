@@ -8,16 +8,17 @@
   <div class="bg-danger">
     <img src="<%= user.imageURL %>" width="200">
     <br>
-    <%=user.username%>
+    Username: <%=user.username%>
   </div>
   <div class="bg-info">
-  <%= user.googlename %><br>
-  <%= user.googleemail %><br>
-  <%= user.age %><br>
-  <%=user.about%><br>
+  Real Name (provided by google): <%= user.googlename %><br>
+  Email Address: <%= user.googleemail %><br>
+  Age: <%= user.age %><br>
+  Bio: <%=user.about%><br>
   </div>
+  <hr>
   <p>Delete all Comments you have made? <a href="/comments/clear">Yes</a></p>
 
-  <a href="/editProfile">Edit</a>
+  <a class="btn btn-info" href="/editProfile">Edit</a>
 <%- include("bootfooter")-%>
 
