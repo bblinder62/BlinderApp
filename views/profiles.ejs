@@ -2,8 +2,7 @@
 <%- include('menubar') -%>
 <div class="jumbotron">
   <h1>Registered Users</h1>
-  <p> this comes from the google authentication
-      and from the info you provide
+  <p> This comes from google authentication. Please setup your profile using the <code>"Edit"</code> link on your profile page.
   </p>
 </div>
 <hr>
@@ -15,9 +14,17 @@
   </thead>
   <% profiles.forEach(profile => { %>
     <tr>
-          <td><%= profile.username %>
-          <a href="/publicprofile/<%= profile._id %>">
-          </a>
+          <td>
+            <%if(profile.username!=""){%>
+              <a href="/publicprofile/<%= profile._id %>">
+              <%= profile.username %>
+              </a>
+            <%}else{%>
+              <a href="/publicprofile/<%= profile._id %>">
+                <%= profile.googlename %>
+                </a>
+            <%}%>
+          
           </td>
           <td>
             <%=profile.about%>
