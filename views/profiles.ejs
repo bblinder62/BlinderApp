@@ -7,13 +7,22 @@
   </p>
 </div>
 <hr>
-<ol>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Username</th><th>Bio</th>
+    </tr>
+  </thead>
   <% profiles.forEach(profile => { %>
-    <li>
-          <%= profile.username %>
+    <tr>
+          <td><%= profile.username %>
           <a href="/publicprofile/<%= profile._id %>">
-            (link)</a>
-    </li>
+          </a>
+          </td>
+          <td>
+            <%=profile.about%>
+          </td>
+    </tr>
   <% }) %>
-</ol>
+</table>
 <%- include('bootfooter') -%>
