@@ -1,3 +1,5 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
 <div class="jumbotron">
   <h1>Registered Users</h1>
   <p> this comes from the google authentication
@@ -8,9 +10,10 @@
 <ol>
   <% profiles.forEach(profile => { %>
     <li>
-          <%= profile.googlename %>
+          <%= profile.username %>
           <a href="/publicprofile/<%= profile._id %>">
             (link)</a>
     </li>
   <% }) %>
 </ol>
+<%- include('bootfooter') -%>
