@@ -27,7 +27,12 @@
           
           </td>
           <td>
-            <%=profile.about%>
+            <%if (profile.about!=null){%>
+              <%=profile.about%>
+            <%}else{%>
+              (This User has not set up their profile page)
+            <%}%>
+            
           </td>
     </tr>
   <% }) %>
