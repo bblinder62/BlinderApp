@@ -1,11 +1,21 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
 <div class="row">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
   <div class="bg-danger">
     <img src="<%= profile.imageURL %>" width="200">
     <br>
     <h1><%=profile.username%>'s Profile Page</h1>
   </div>
+  </th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
   <div class="bg-info">
   Real Name: 
   <% if(user.googleemail==profile.googleemail){%>
@@ -23,4 +33,8 @@
     <%=user.about%>
   </div>
   </div>
+</td>
+</tr>
+</tbody>
+</table>
 <%- include('bootfooter') -%>
